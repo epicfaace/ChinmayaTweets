@@ -1,0 +1,34 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ChinmayaTweet' do
+  pod 'AppCenter/Crashes', '~> 1.9.0'
+  pod 'AppCenter/Analytics', '~> 1.9.0'
+  pod 'AppCenterReactNativeShared', '~> 1.8.1'
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for ChinmayaTweet
+
+  
+
+  platform :ios, '9.0'
+  target 'ChinmayaTweetTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'ChinmayaTweet-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for ChinmayaTweet-tvOS
+
+  target 'ChinmayaTweet-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

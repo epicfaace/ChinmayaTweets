@@ -1,0 +1,818 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		159644ED8B6A011AE1BEC9F9CFB31F6C /* Pods-ChinmayaTweetTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6AB95B871AA88C612B555A6F6E3606 /* Pods-ChinmayaTweetTests-dummy.m */; };
+		83D96418521C363B81B516E003E1F559 /* Pods-ChinmayaTweet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2882BC13187BA955D09995A3D2D47A1D /* Pods-ChinmayaTweet-dummy.m */; };
+		8FE67A694DCCC116F5BEE91EE8625F63 /* Pods-ChinmayaTweet-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE676CBB1FEA5E0D52ED43C3D511EE7 /* Pods-ChinmayaTweet-tvOSTests-dummy.m */; };
+		BE3F9D0F72D18880DC88BB01B33281A9 /* Pods-ChinmayaTweet-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B04EDFBC9E722D92B55FF27D5F368F /* Pods-ChinmayaTweet-tvOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A7E113310875ECB8827FD7786206221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 337A92CDCFD3B93E4DF2F90CF07C7C4E;
+			remoteInfo = "Pods-ChinmayaTweet-tvOS";
+		};
+		5AA8B008C9C3BC352E6AB6204AF27CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42E1A40670C34955EA8430E9058E3731;
+			remoteInfo = "Pods-ChinmayaTweet";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01063E0CD147D849EC2BE73C7C09936E /* Pods-ChinmayaTweet-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweet-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		11D5033F8C07E1B63B1D27CB45D1B774 /* Pods-ChinmayaTweet-tvOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweet-tvOSTests-resources.sh"; sourceTree = "<group>"; };
+		187E197F2D34B209650659094CC93202 /* Pods-ChinmayaTweetTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweetTests-frameworks.sh"; sourceTree = "<group>"; };
+		1AC245BB96EDA30F0DDBB8EF651CCDCE /* libPods-ChinmayaTweet-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ChinmayaTweet-tvOS.a"; path = "libPods-ChinmayaTweet-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FF8CBE3D70C3B5EE02BF7F1402952A2 /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterCrashes.framework; path = "AppCenter-SDK-Apple/iOS/AppCenterCrashes.framework"; sourceTree = "<group>"; };
+		2882BC13187BA955D09995A3D2D47A1D /* Pods-ChinmayaTweet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ChinmayaTweet-dummy.m"; sourceTree = "<group>"; };
+		2A77DC325FC00E75C9265FC75FD60606 /* Pods-ChinmayaTweet-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweet-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		2BB82DADE1C819D9908564CA2F55A8C3 /* Pods-ChinmayaTweet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweet.debug.xcconfig"; sourceTree = "<group>"; };
+		2E280B58529AEBA76B5F11C0705D0856 /* AppCenterReactNativeShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterReactNativeShared.framework; path = AppCenterReactNativeShared/AppCenterReactNativeShared.framework; sourceTree = "<group>"; };
+		34976CB39524BA2B5A3B6C86D23B8592 /* libPods-ChinmayaTweet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ChinmayaTweet.a"; path = "libPods-ChinmayaTweet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41011842CA7D0640F820EC238212D244 /* Pods-ChinmayaTweet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ChinmayaTweet-acknowledgements.plist"; sourceTree = "<group>"; };
+		47D55C67587F613492F3D6A3CE0323C8 /* Pods-ChinmayaTweetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweetTests.release.xcconfig"; sourceTree = "<group>"; };
+		4CE676CBB1FEA5E0D52ED43C3D511EE7 /* Pods-ChinmayaTweet-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ChinmayaTweet-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		67B04EDFBC9E722D92B55FF27D5F368F /* Pods-ChinmayaTweet-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ChinmayaTweet-tvOS-dummy.m"; sourceTree = "<group>"; };
+		697057EB6F6A315777E7EA941A2AAF3B /* AppCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterAnalytics.framework; path = "AppCenter-SDK-Apple/iOS/AppCenterAnalytics.framework"; sourceTree = "<group>"; };
+		75EA55F7F7B2F49C7EEA3274362C50CC /* Pods-ChinmayaTweet-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweet-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		7FD1296B4EA63B80E243E73C85391BB4 /* Pods-ChinmayaTweetTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ChinmayaTweetTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		8503C5C860B883C99DC9B99215D26191 /* Pods-ChinmayaTweet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweet-frameworks.sh"; sourceTree = "<group>"; };
+		8B57B5B7E2044F8BFDDB180B1558FFF9 /* Pods-ChinmayaTweetTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweetTests-resources.sh"; sourceTree = "<group>"; };
+		8CED400A16F22494C8AE7F71288BC332 /* libPods-ChinmayaTweet-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ChinmayaTweet-tvOSTests.a"; path = "libPods-ChinmayaTweet-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DEDA21257D196429635186AE7C33B21 /* Pods-ChinmayaTweet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ChinmayaTweet-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		957194CABD82CF05F57FC7A3F2160602 /* Pods-ChinmayaTweet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweet.release.xcconfig"; sourceTree = "<group>"; };
+		A1549BAC831C6F7B3C949AF316C16BB3 /* Pods-ChinmayaTweetTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ChinmayaTweetTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A2B44E5E555A34D79F526B51FA8BE3AC /* Pods-ChinmayaTweet-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ChinmayaTweet-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BEA99903579A3F42419C094914F8CFC3 /* Pods-ChinmayaTweet-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ChinmayaTweet-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C5BD885DABC87A622CF5C8265B3F09EE /* Pods-ChinmayaTweet-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweet-resources.sh"; sourceTree = "<group>"; };
+		CA263239CDF228A01CE51400B60047F7 /* Pods-ChinmayaTweet-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweet-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6C5AA302B85099031951D84732C5484 /* Pods-ChinmayaTweet-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweet-tvOS-resources.sh"; sourceTree = "<group>"; };
+		D985D456751B88391722C9753515A4EA /* libPods-ChinmayaTweetTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ChinmayaTweetTests.a"; path = "libPods-ChinmayaTweetTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6AB95B871AA88C612B555A6F6E3606 /* Pods-ChinmayaTweetTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ChinmayaTweetTests-dummy.m"; sourceTree = "<group>"; };
+		DAC110678880D12DB0DD0B1614F8F884 /* Pods-ChinmayaTweet-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ChinmayaTweet-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		DC65AFFB7964130E42157D207BE3A6DE /* AppCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenter.framework; path = "AppCenter-SDK-Apple/iOS/AppCenter.framework"; sourceTree = "<group>"; };
+		E6D63051146E7B80640F914581F2CC91 /* Pods-ChinmayaTweet-tvOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ChinmayaTweet-tvOSTests-frameworks.sh"; sourceTree = "<group>"; };
+		EA13EA507ECCA19095A39E3605EDF65B /* Pods-ChinmayaTweet-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ChinmayaTweet-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		EBCA457B4AB5634052876E501B9E9F88 /* Pods-ChinmayaTweet-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweet-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F457BD224EFFF6BCADA5B452B1F20F45 /* Pods-ChinmayaTweetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ChinmayaTweetTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06FCC6DB90DB6F4715DCA32A175CB6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5263E7D57FE33DC1ADE4C5C718285E96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3D4791BEB61D8979B1C68CC7F33B989 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E434B3B05968C5C0ABF4DF8FA289ED1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C0416FA3744ECAB6C76E95960896084 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC65AFFB7964130E42157D207BE3A6DE /* AppCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F1102F6BE385E1EF382A663D5BB4554 /* Pods-ChinmayaTweet-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				BEA99903579A3F42419C094914F8CFC3 /* Pods-ChinmayaTweet-tvOS-acknowledgements.markdown */,
+				DAC110678880D12DB0DD0B1614F8F884 /* Pods-ChinmayaTweet-tvOS-acknowledgements.plist */,
+				67B04EDFBC9E722D92B55FF27D5F368F /* Pods-ChinmayaTweet-tvOS-dummy.m */,
+				01063E0CD147D849EC2BE73C7C09936E /* Pods-ChinmayaTweet-tvOS-frameworks.sh */,
+				D6C5AA302B85099031951D84732C5484 /* Pods-ChinmayaTweet-tvOS-resources.sh */,
+				EBCA457B4AB5634052876E501B9E9F88 /* Pods-ChinmayaTweet-tvOS.debug.xcconfig */,
+				2A77DC325FC00E75C9265FC75FD60606 /* Pods-ChinmayaTweet-tvOS.release.xcconfig */,
+			);
+			name = "Pods-ChinmayaTweet-tvOS";
+			path = "Target Support Files/Pods-ChinmayaTweet-tvOS";
+			sourceTree = "<group>";
+		};
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2299AF501E253B95F2AE1FAD00A3B182 /* Crashes */ = {
+			isa = PBXGroup;
+			children = (
+				4789B2888C9F3A64D9BB98A64504484B /* Frameworks */,
+			);
+			name = Crashes;
+			sourceTree = "<group>";
+		};
+		260E672E181DB8BDAC7A2999772A7AE4 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				8E2C96EA6162ABA11EBE8E8817909062 /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		2D20FC01AE47C04E62202F456C8DC21D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0C0416FA3744ECAB6C76E95960896084 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		35DA72620D06E083B77494DCA47D1FD6 /* Pods-ChinmayaTweetTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1549BAC831C6F7B3C949AF316C16BB3 /* Pods-ChinmayaTweetTests-acknowledgements.markdown */,
+				7FD1296B4EA63B80E243E73C85391BB4 /* Pods-ChinmayaTweetTests-acknowledgements.plist */,
+				DA6AB95B871AA88C612B555A6F6E3606 /* Pods-ChinmayaTweetTests-dummy.m */,
+				187E197F2D34B209650659094CC93202 /* Pods-ChinmayaTweetTests-frameworks.sh */,
+				8B57B5B7E2044F8BFDDB180B1558FFF9 /* Pods-ChinmayaTweetTests-resources.sh */,
+				F457BD224EFFF6BCADA5B452B1F20F45 /* Pods-ChinmayaTweetTests.debug.xcconfig */,
+				47D55C67587F613492F3D6A3CE0323C8 /* Pods-ChinmayaTweetTests.release.xcconfig */,
+			);
+			name = "Pods-ChinmayaTweetTests";
+			path = "Target Support Files/Pods-ChinmayaTweetTests";
+			sourceTree = "<group>";
+		};
+		4789B2888C9F3A64D9BB98A64504484B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FF8CBE3D70C3B5EE02BF7F1402952A2 /* AppCenterCrashes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4815877CF9E4EDAC3C68A9ECD054E7AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34976CB39524BA2B5A3B6C86D23B8592 /* libPods-ChinmayaTweet.a */,
+				1AC245BB96EDA30F0DDBB8EF651CCDCE /* libPods-ChinmayaTweet-tvOS.a */,
+				8CED400A16F22494C8AE7F71288BC332 /* libPods-ChinmayaTweet-tvOSTests.a */,
+				D985D456751B88391722C9753515A4EA /* libPods-ChinmayaTweetTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				B1C0FD4C526B54B6F7B5EA76C32A7B4C /* Pods */,
+				4815877CF9E4EDAC3C68A9ECD054E7AC /* Products */,
+				E1EC7C96586D428B0CECC33AA095DFED /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8E2C96EA6162ABA11EBE8E8817909062 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				697057EB6F6A315777E7EA941A2AAF3B /* AppCenterAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1C0FD4C526B54B6F7B5EA76C32A7B4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6F4E16E170AFF42D929EF8FFF92078F /* AppCenter */,
+				FDE42022E7C36FE2A980950DD051F732 /* AppCenterReactNativeShared */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC99CA2A47F68002817FCF3DB044D8A3 /* Pods-ChinmayaTweet-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2B44E5E555A34D79F526B51FA8BE3AC /* Pods-ChinmayaTweet-tvOSTests-acknowledgements.markdown */,
+				EA13EA507ECCA19095A39E3605EDF65B /* Pods-ChinmayaTweet-tvOSTests-acknowledgements.plist */,
+				4CE676CBB1FEA5E0D52ED43C3D511EE7 /* Pods-ChinmayaTweet-tvOSTests-dummy.m */,
+				E6D63051146E7B80640F914581F2CC91 /* Pods-ChinmayaTweet-tvOSTests-frameworks.sh */,
+				11D5033F8C07E1B63B1D27CB45D1B774 /* Pods-ChinmayaTweet-tvOSTests-resources.sh */,
+				CA263239CDF228A01CE51400B60047F7 /* Pods-ChinmayaTweet-tvOSTests.debug.xcconfig */,
+				75EA55F7F7B2F49C7EEA3274362C50CC /* Pods-ChinmayaTweet-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-ChinmayaTweet-tvOSTests";
+			path = "Target Support Files/Pods-ChinmayaTweet-tvOSTests";
+			sourceTree = "<group>";
+		};
+		D6F4E16E170AFF42D929EF8FFF92078F /* AppCenter */ = {
+			isa = PBXGroup;
+			children = (
+				260E672E181DB8BDAC7A2999772A7AE4 /* Analytics */,
+				2D20FC01AE47C04E62202F456C8DC21D /* Core */,
+				2299AF501E253B95F2AE1FAD00A3B182 /* Crashes */,
+			);
+			name = AppCenter;
+			path = AppCenter;
+			sourceTree = "<group>";
+		};
+		E1EC7C96586D428B0CECC33AA095DFED /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE2AA72422B80ECB09C35EBD8543DCF0 /* Pods-ChinmayaTweet */,
+				0F1102F6BE385E1EF382A663D5BB4554 /* Pods-ChinmayaTweet-tvOS */,
+				CC99CA2A47F68002817FCF3DB044D8A3 /* Pods-ChinmayaTweet-tvOSTests */,
+				35DA72620D06E083B77494DCA47D1FD6 /* Pods-ChinmayaTweetTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		EE2AA72422B80ECB09C35EBD8543DCF0 /* Pods-ChinmayaTweet */ = {
+			isa = PBXGroup;
+			children = (
+				8DEDA21257D196429635186AE7C33B21 /* Pods-ChinmayaTweet-acknowledgements.markdown */,
+				41011842CA7D0640F820EC238212D244 /* Pods-ChinmayaTweet-acknowledgements.plist */,
+				2882BC13187BA955D09995A3D2D47A1D /* Pods-ChinmayaTweet-dummy.m */,
+				8503C5C860B883C99DC9B99215D26191 /* Pods-ChinmayaTweet-frameworks.sh */,
+				C5BD885DABC87A622CF5C8265B3F09EE /* Pods-ChinmayaTweet-resources.sh */,
+				2BB82DADE1C819D9908564CA2F55A8C3 /* Pods-ChinmayaTweet.debug.xcconfig */,
+				957194CABD82CF05F57FC7A3F2160602 /* Pods-ChinmayaTweet.release.xcconfig */,
+			);
+			name = "Pods-ChinmayaTweet";
+			path = "Target Support Files/Pods-ChinmayaTweet";
+			sourceTree = "<group>";
+		};
+		F84ACEF4E4D3666C3A595115D01D3868 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E280B58529AEBA76B5F11C0705D0856 /* AppCenterReactNativeShared.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDE42022E7C36FE2A980950DD051F732 /* AppCenterReactNativeShared */ = {
+			isa = PBXGroup;
+			children = (
+				F84ACEF4E4D3666C3A595115D01D3868 /* Frameworks */,
+			);
+			name = AppCenterReactNativeShared;
+			path = AppCenterReactNativeShared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C22427214C7AACD22FEC3689DF1F3AA3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA91FC89DBC346A9B7408C3B1847E723 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4432AF5693900A7AC62568AEC0AF2EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9FB3BF677449E2CBB279B2B21D1388B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		337A92CDCFD3B93E4DF2F90CF07C7C4E /* Pods-ChinmayaTweet-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFCEE9CD5D0D2EF0B54B343261CB9CEC /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweet-tvOS" */;
+			buildPhases = (
+				C22427214C7AACD22FEC3689DF1F3AA3 /* Headers */,
+				D12DC6282084AB800A09C7C482F7656E /* Sources */,
+				D3D4791BEB61D8979B1C68CC7F33B989 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ChinmayaTweet-tvOS";
+			productName = "Pods-ChinmayaTweet-tvOS";
+			productReference = 1AC245BB96EDA30F0DDBB8EF651CCDCE /* libPods-ChinmayaTweet-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		42E1A40670C34955EA8430E9058E3731 /* Pods-ChinmayaTweet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF974D9628CAD147F3BF3432CE03598 /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweet" */;
+			buildPhases = (
+				E4432AF5693900A7AC62568AEC0AF2EA /* Headers */,
+				DB673CD4B89D7F4257C9E4B524ED3579 /* Sources */,
+				5263E7D57FE33DC1ADE4C5C718285E96 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ChinmayaTweet";
+			productName = "Pods-ChinmayaTweet";
+			productReference = 34976CB39524BA2B5A3B6C86D23B8592 /* libPods-ChinmayaTweet.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9B0D0E77E9120F53C9F03DF9648476E0 /* Pods-ChinmayaTweet-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC4ABA6E058A36C92A9F814BE37C4371 /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweet-tvOSTests" */;
+			buildPhases = (
+				E9FB3BF677449E2CBB279B2B21D1388B /* Headers */,
+				5972E2263C5E2632C5947AAD78C88623 /* Sources */,
+				06FCC6DB90DB6F4715DCA32A175CB6D6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				565050884813268D92EE007CB8BE31F6 /* PBXTargetDependency */,
+			);
+			name = "Pods-ChinmayaTweet-tvOSTests";
+			productName = "Pods-ChinmayaTweet-tvOSTests";
+			productReference = 8CED400A16F22494C8AE7F71288BC332 /* libPods-ChinmayaTweet-tvOSTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E8109AD86D408603C4DD72B53C7B04B9 /* Pods-ChinmayaTweetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCB6520D9184D675EE275780F609437F /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweetTests" */;
+			buildPhases = (
+				CA91FC89DBC346A9B7408C3B1847E723 /* Headers */,
+				4362ED61BA601F090CF2E6D724F24D44 /* Sources */,
+				E434B3B05968C5C0ABF4DF8FA289ED1A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B88E2D9614D0D9D584B594F8603CCEE /* PBXTargetDependency */,
+			);
+			name = "Pods-ChinmayaTweetTests";
+			productName = "Pods-ChinmayaTweetTests";
+			productReference = D985D456751B88391722C9753515A4EA /* libPods-ChinmayaTweetTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 4815877CF9E4EDAC3C68A9ECD054E7AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42E1A40670C34955EA8430E9058E3731 /* Pods-ChinmayaTweet */,
+				337A92CDCFD3B93E4DF2F90CF07C7C4E /* Pods-ChinmayaTweet-tvOS */,
+				9B0D0E77E9120F53C9F03DF9648476E0 /* Pods-ChinmayaTweet-tvOSTests */,
+				E8109AD86D408603C4DD72B53C7B04B9 /* Pods-ChinmayaTweetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4362ED61BA601F090CF2E6D724F24D44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				159644ED8B6A011AE1BEC9F9CFB31F6C /* Pods-ChinmayaTweetTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5972E2263C5E2632C5947AAD78C88623 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FE67A694DCCC116F5BEE91EE8625F63 /* Pods-ChinmayaTweet-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D12DC6282084AB800A09C7C482F7656E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE3F9D0F72D18880DC88BB01B33281A9 /* Pods-ChinmayaTweet-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB673CD4B89D7F4257C9E4B524ED3579 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D96418521C363B81B516E003E1F559 /* Pods-ChinmayaTweet-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B88E2D9614D0D9D584B594F8603CCEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ChinmayaTweet";
+			target = 42E1A40670C34955EA8430E9058E3731 /* Pods-ChinmayaTweet */;
+			targetProxy = 5AA8B008C9C3BC352E6AB6204AF27CB5 /* PBXContainerItemProxy */;
+		};
+		565050884813268D92EE007CB8BE31F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ChinmayaTweet-tvOS";
+			target = 337A92CDCFD3B93E4DF2F90CF07C7C4E /* Pods-ChinmayaTweet-tvOS */;
+			targetProxy = 1A7E113310875ECB8827FD7786206221 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D37ED401FCE47B75F5B50327144A0BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBCA457B4AB5634052876E501B9E9F88 /* Pods-ChinmayaTweet-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		27565DF999F2F189A15F4D24EA964452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		4732A366CFF18739EE2FF65925B548B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47D55C67587F613492F3D6A3CE0323C8 /* Pods-ChinmayaTweetTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A81EEEA0200CF166ED592F2E62A1F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		5C3DE1369952267F2C46E2921A174C63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BB82DADE1C819D9908564CA2F55A8C3 /* Pods-ChinmayaTweet.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BACB8556CF1DE25A8F34512B63ECD693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 957194CABD82CF05F57FC7A3F2160602 /* Pods-ChinmayaTweet.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E47A6CB47633C9B7781996078D25A32D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA263239CDF228A01CE51400B60047F7 /* Pods-ChinmayaTweet-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		EEFFE8EDBA66F2354B27921C3BF296AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F457BD224EFFF6BCADA5B452B1F20F45 /* Pods-ChinmayaTweetTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7386A02E5457C7AA180AF63050B07F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A77DC325FC00E75C9265FC75FD60606 /* Pods-ChinmayaTweet-tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCF0E590F3CA115D29ACE98D0A9E59F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75EA55F7F7B2F49C7EEA3274362C50CC /* Pods-ChinmayaTweet-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A81EEEA0200CF166ED592F2E62A1F23 /* Debug */,
+				27565DF999F2F189A15F4D24EA964452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFCEE9CD5D0D2EF0B54B343261CB9CEC /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweet-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D37ED401FCE47B75F5B50327144A0BB /* Debug */,
+				F7386A02E5457C7AA180AF63050B07F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF974D9628CAD147F3BF3432CE03598 /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C3DE1369952267F2C46E2921A174C63 /* Debug */,
+				BACB8556CF1DE25A8F34512B63ECD693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC4ABA6E058A36C92A9F814BE37C4371 /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweet-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E47A6CB47633C9B7781996078D25A32D /* Debug */,
+				FCF0E590F3CA115D29ACE98D0A9E59F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCB6520D9184D675EE275780F609437F /* Build configuration list for PBXNativeTarget "Pods-ChinmayaTweetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEFFE8EDBA66F2354B27921C3BF296AB /* Debug */,
+				4732A366CFF18739EE2FF65925B548B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
