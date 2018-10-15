@@ -8,10 +8,24 @@ import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom
 import {createStackNavigator,createSwitchNavigator} from "react-navigation";
 import TweetList from './TweetList';
 import TweetDetail from './TweetDetail';
+import TweetItem from './TweetItem';
+import VerifyOtp from './VerifyOtp';
+
 
 const AppStack = createStackNavigator({
     TweetList: { screen: TweetList },
     TweetDetail: { screen: TweetDetail },
+    TweetItem: { screen: TweetItem },
+  },
+  {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
+  });
+
+const VerifyStack = createStackNavigator({
+    VerifyOtp: { screen: VerifyOtp },
   },
   {
     headerMode: 'none',
@@ -49,6 +63,7 @@ const RootStack= createSwitchNavigator(
   {
     App: AppStack,
     Auth: AuthStack,
+    Verify:VerifyStack,
   },
   {
     initialRouteName: 'Auth',

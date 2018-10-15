@@ -1,15 +1,20 @@
 import React,{Component} from 'react';
-import {Image,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
+import {Image,Dimensions,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import SearchBar from '../containers/SearchBar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import TweetItem from './TweetItem'
+
+const width=Dimensions.get('window').width;
+const newWidth=Platform.OS === 'ios' ? width*0.2 : width*0.2;
 
 class TweetList extends Component{
     titleXPos=new Animated.Value(0);
     animatedTitle=(direction=1)=>{
     Animated.timing(
         this.titleXPos,
-        {toValue: direction*75,
+        {toValue: direction*newWidth,
           duration:850,
           easing:Easing.spring
         }).start(({finished})=> {
@@ -36,29 +41,49 @@ class TweetList extends Component{
       {
         const allTweets=this.props.allTweets;
         return(
-          <ScrollView>
+          <View style={styles.mainContainer}>
+            <View style={styles.search}>
+              <SearchBar/>
+            </View>
             <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
                   <Text style={styles.backLink}>
                     <FontAwesome name={'sign-out'} style={styles.chevron}/>
                      Log Out
                   </Text>
             </TouchableOpacity>
-            {allTweets.map(tweet=>
-                <TouchableOpacity key={tweet.id} onPress={()=>this.goToDetail(tweet.id)} style={styles.tweet}>
-                  <View style={styles.info}>
-                    <Text style={styles.title}>{tweet.title.rendered}</Text>
-                    <Text style={styles.date}>{tweet.tweet_date}</Text>
-                    <Image
-                          source={{uri:tweet.featured_image}}
-                          style={{height:270, width:'100%'}}/>
-                    <Text style={styles.content}>{tweet.content.slice(0,100)}</Text>
-                  </View>
-                  <View style={styles.readMore}>
-                      <Text style={{color:'#999999'}} >Read More...</Text>
-                  </View>
-                </TouchableOpacity>
-            )}
-          </ScrollView>
+            <View style={styles.scrollContainer}>
+              <FlatList
+                data={allTweets}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item}) => <TweetItem onPress={()=>this.goToDetail(item.id)} tweet={item}/>}
+                />
+            </View>
+          </View>
+        );
+      }
+      if(this.props.searchTweets!=='empty')
+      {
+        const searchTweets=this.props.searchTweets;
+        console.log(searchTweets);
+        return(
+          <View style={styles.mainContainer}>
+            <View style={styles.search}>
+              <SearchBar/>
+            </View>
+            <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
+                  <Text style={styles.backLink}>
+                    <FontAwesome name={'sign-out'} style={styles.chevron}/>
+                     Log Out
+                  </Text>
+            </TouchableOpacity>
+            <View style={styles.scrollContainer}>
+              <FlatList
+                data={searchTweets}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item}) => <TweetItem onPress={()=>this.goToDetail(item.id)} tweet={item}/>}
+                />
+            </View>
+          </View>
         );
       }
       return (
@@ -72,23 +97,29 @@ class TweetList extends Component{
 
 
 const mapStateToProps=(state)=>{
-  return{allTweets:state.TweetsReducer};
+  return{allTweets:state.TweetsReducer ,searchTweets:state.SearchReducer}
 }
 
 export default connect(mapStateToProps)(TweetList);
 
 const styles=StyleSheet.create({
-    backLink:{
-      color:'white',
-      fontSize:20,
+    mainContainer:{
+      backgroundColor:'#e6e6e6',
+    },
+    scrollContainer:{
+      marginBottom:180,
     },
     goBack:{
       padding:7,
-      alignItems:'flex-start',
       backgroundColor:'#999999',
+      alignItems:'flex-end',
+    },
+    backLink:{
+      color:'white',
+      fontSize:12,
     },
     chevron:{
-      fontSize:20,
+      fontSize:16,
     },
     container: {
         flex: 1,
@@ -97,55 +128,13 @@ const styles=StyleSheet.create({
     },
     header: {
         fontSize: 30,
-        fontWeight:'900',
-        fontFamily:'Cochin'
-    },
-    tweet:{
-        marginHorizontal:10,
-        marginTop:10,
-    },
-    info:{
-        padding:10,
-        backgroundColor:"#fff",
-        borderColor:"#bbb",
-        borderWidth:1,
-        borderTopWidth:0,
-        borderBottomWidth:0,
-        borderBottomStartRadius:0,
-        borderBottomEndRadius:0,
-        borderRadius:7,
-    },
-    title:{
-        fontSize:16,
-        fontWeight:'bold',
-        marginBottom:5,
-    },
-    image:{
-        height:250,
-        width:'100%',
     },
     button:{
         flexDirection:'row',
         justifyContent: 'center',
     },
-    date:{
-        fontSize:12,
-        fontWeight:'bold',
-        color:'grey',
-        marginBottom:7,
+    search:{
+      marginBottom:15,
     },
-    readMore:{
-        padding:10,
-        backgroundColor:'#f2f2f2',
-        borderWidth:1,
-        borderColor:"#bbb",
-        borderTopWidth:0,
-        borderBottomStartRadius:7,
-        borderBottomEndRadius:7,
-    },
-    content:{
-        fontSize:18,
-        fontFamily:Platform.OS === 'ios' ? 'cochin' : 'sans-serif-condensed',
-        marginTop:10,
-    },
+
 });

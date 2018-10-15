@@ -1,4 +1,4 @@
-import {SIGN_IN,SIGN_UP,ALL_TWEETS} from './actionTypes'
+import {SIGN_IN,SIGN_UP,ALL_TWEETS,SEARCH_TWEETS} from './actionTypes'
 // import axios from 'axios';
 import ajax from '../Utils/ajax';
 
@@ -24,6 +24,14 @@ export async function tweets(tweets){
    const request=await ajax.fetchInitialTweets();
    return{
      type:ALL_TWEETS,
+     tweets:request,
+   };
+}
+
+export async function searchTweets(term){
+   const request=await ajax.fetchTweetsSearchResults(term);
+   return{
+     type:SEARCH_TWEETS,
      tweets:request,
    };
 }

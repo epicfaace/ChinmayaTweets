@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import {ScrollView,Modal,TouchableOpacity,Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
+import {Dimensions,ScrollView,Modal,TouchableOpacity,Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {signIn} from '../actions';
 import {tweets} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
+const width=Dimensions.get('window').width;
+const newWidth=width/2.7;
 
 class SignIn extends Component {
   state = {
@@ -17,7 +20,7 @@ class SignIn extends Component {
   }
 
   signIn=()=>{
-    // this.props.signIn(this.state.username,this.state.password);
+    //this.props.signIn(this.state.username,this.state.password);
     // console.log(this.props.authenticated);
     var authenticated=true;
     if(authenticated){
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
     borderRadius:10
   },
   userIcon:{
-    marginHorizontal:130,
+    left:newWidth,
     marginBottom:20,
   }
 });

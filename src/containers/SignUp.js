@@ -5,8 +5,8 @@ import {signUp} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-// const height=Dimensions.get('window').height;
-// const newHeight=height/8;
+const width=Dimensions.get('window').width;
+const newWidth=width/2.2;
 class SignUp extends Component {
   state = {
     username:'',
@@ -19,9 +19,10 @@ class SignUp extends Component {
   }
 
   signUp=()=>{
-    const {username,password,email,phone_number}=this.state;
-    this.props.signUp(username,password,email,phone_number);
-    alert("Hurray!! You Signed Up");
+    // const {username,password,email,phone_number}=this.state;
+    // this.props.signUp(username,password,email,phone_number);
+    // alert("Hurray!! You Signed Up");
+    this.props.navigation.navigate('Verify');
   }
 
 
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     borderRadius:10
   },
   userIcon:{
-    marginHorizontal:150,
+    left:newWidth,
     marginBottom:20,
   },
   starIcon:{

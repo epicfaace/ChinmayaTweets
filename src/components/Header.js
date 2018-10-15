@@ -5,7 +5,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const width=Dimensions.get('window').width;
 export default class Header extends Component{
 
-  render(){
+  render(){  
     return(
       <View>
         <TouchableOpacity onPress={this.props.onClick} style={styles.heading}>

@@ -13,7 +13,7 @@ export default{
 
     async fetchTweetsSearchResults(searchTerm){
      try {
-         const response = await fetch(apiHost+'/wp-json/wp/v2/tweet2?searchTerm='+searchTerm);
+         const response = await fetch(apiHost+'/wp-json/gcmw/v1/tweet/search?term='+searchTerm);
          const responseJson = await response.json();
          return responseJson;
        } catch (error) {

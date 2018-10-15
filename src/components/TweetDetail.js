@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Image,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 class TweetDetail extends Component{
     titleXPos=new Animated.Value(0);
@@ -15,6 +16,10 @@ class TweetDetail extends Component{
         }
     });
   }
+    onBack=()=>{
+      console.log('lets go back')
+      this.props.navigation.navigate('TweetList')
+    }
 
     componentDidMount() {
       const tweetId=this.props.navigation.state.params.tweetId;
@@ -28,33 +33,63 @@ class TweetDetail extends Component{
         const tweetDetail=allTweets.filter((tweet)=>tweet.id==this.props.navigation.state.params.tweetId);
         console.log(tweetDetail);
         return(
-          <ScrollView>
-            {tweetDetail.map(tweet=>
-                <View key={tweet.id}>
-                  <Image
-                    source={{uri:tweet.featured_image}}
-                    style={styles.image}/>
-                  <View style={styles.titleView}>
-                    <Text style={styles.title}>{tweet.title.rendered}</Text>
+            <ScrollView>
+              <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
+                <Text style={styles.backLink}>
+                  <FontAwesome name={'chevron-left'} style={styles.chevron}/>
+                  Back
+                </Text>
+              </TouchableOpacity>
+              {tweetDetail.map(tweet=>
+                  <View key={tweet.id}>
+                    <Image
+                      source={{uri:tweet.featured_image}}
+                      style={styles.image}/>
+                    <View style={styles.titleView}>
+                      <Text style={styles.title}>{tweet.title.rendered}</Text>
+                    </View>
+                    <View style={styles.content}>
+                      <Text style={styles.contentMatter}>{tweet.content}</Text>
+                    </View>
                   </View>
-                  <View style={styles.content}>
-                    <Text style={styles.contentMatter}>{tweet.content}</Text>
-                  </View>
-                </View>
-            )}
-          </ScrollView>
+              )}
+            </ScrollView>
         );
       }
-      return (
-        <Animated.View style={[{left:this.titleXPos}, styles.container]}>
-            <Text style={styles.header}>CCMT TWEETS</Text>
-        </Animated.View>
-      );
+      if(this.props.searchTweets!=='empty')
+      {
+        const searchTweets=this.props.searchTweets;
+        const tweetDetail=searchTweets.filter((tweet)=>tweet.id==this.props.navigation.state.params.tweetId);
+        console.log(tweetDetail);
+        return(
+            <ScrollView>
+              <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
+                <Text style={styles.backLink}>
+                  <FontAwesome name={'chevron-left'} style={styles.chevron}/>
+                  Back
+                </Text>
+              </TouchableOpacity>
+              {tweetDetail.map(tweet=>
+                  <View key={tweet.id}>
+                    <Image
+                      source={{uri:tweet.featured_image}}
+                      style={styles.image}/>
+                    <View style={styles.titleView}>
+                      <Text style={styles.title}>{tweet.post_title}</Text>
+                    </View>
+                    <View style={styles.content}>
+                      <Text style={styles.contentMatter}>{tweet.content}</Text>
+                    </View>
+                  </View>
+              )}
+            </ScrollView>
+        );
+      }
     }
 }
 
 const mapStateToProps=(state)=>{
-  return{allTweets:state.TweetsReducer};
+  return{allTweets:state.TweetsReducer,searchTweets:state.SearchReducer};
 }
 
 export default connect(mapStateToProps)(TweetDetail);
@@ -90,4 +125,19 @@ const styles=StyleSheet.create({
     height:400,
     width:'100%',
   },
+  backLink:{
+  marginBottom:5,
+  color:'white',
+  fontSize:18,
+},
+goBack:{
+  padding:7,
+  alignItems:'center',
+  backgroundColor:'#999999',
+  marginBottom:10,
+  alignItems:'flex-start',
+},
+chevron:{
+  fontSize:16
+}
 });
