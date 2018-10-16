@@ -4,10 +4,11 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import SearchBar from '../containers/SearchBar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import TweetItem from './TweetItem'
+import TweetItem from './TweetItem';
+import LogOutHeader from './LogOutHeader';
 
 const width=Dimensions.get('window').width;
-const newWidth=Platform.OS === 'ios' ? width*0.2 : width*0.2;
+const newWidth=width*0.18;
 
 class TweetList extends Component{
     titleXPos=new Animated.Value(0);
@@ -15,7 +16,7 @@ class TweetList extends Component{
     Animated.timing(
         this.titleXPos,
         {toValue: direction*newWidth,
-          duration:850,
+          duration:700,
           easing:Easing.spring
         }).start(({finished})=> {
           if(finished){
@@ -33,24 +34,20 @@ class TweetList extends Component{
 
     }
 
-    onBack=()=>{
+    onlogout=()=>{
       this.props.navigation.navigate('Auth');
     }
+
     render() {
       if(this.props.allTweets!=='empty')
       {
         const allTweets=this.props.allTweets;
         return(
           <View style={styles.mainContainer}>
+            <LogOutHeader onlogout={()=>this.onlogout()}/>
             <View style={styles.search}>
               <SearchBar/>
             </View>
-            <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
-                  <Text style={styles.backLink}>
-                    <FontAwesome name={'sign-out'} style={styles.chevron}/>
-                     Log Out
-                  </Text>
-            </TouchableOpacity>
             <View style={styles.scrollContainer}>
               <FlatList
                 data={allTweets}
@@ -67,15 +64,10 @@ class TweetList extends Component{
         console.log(searchTweets);
         return(
           <View style={styles.mainContainer}>
+            <LogOutHeader onBack={()=>this.onBack()}/>
             <View style={styles.search}>
               <SearchBar/>
             </View>
-            <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
-                  <Text style={styles.backLink}>
-                    <FontAwesome name={'sign-out'} style={styles.chevron}/>
-                     Log Out
-                  </Text>
-            </TouchableOpacity>
             <View style={styles.scrollContainer}>
               <FlatList
                 data={searchTweets}
@@ -88,7 +80,7 @@ class TweetList extends Component{
       }
       return (
         <Animated.View style={[{left:this.titleXPos}, styles.container]}>
-            <Text style={styles.header}>CCMT TWEETS</Text>
+            <Text style={styles.header}>Chinmaya Echoes</Text>
         </Animated.View>
       );
     }
@@ -105,21 +97,10 @@ export default connect(mapStateToProps)(TweetList);
 const styles=StyleSheet.create({
     mainContainer:{
       backgroundColor:'#e6e6e6',
+      marginBottom:Platform.OS === 'ios' ? 28 : 35,
     },
     scrollContainer:{
-      marginBottom:180,
-    },
-    goBack:{
-      padding:7,
-      backgroundColor:'#999999',
-      alignItems:'flex-end',
-    },
-    backLink:{
-      color:'white',
-      fontSize:12,
-    },
-    chevron:{
-      fontSize:16,
+      marginBottom:150,
     },
     container: {
         flex: 1,
@@ -134,7 +115,7 @@ const styles=StyleSheet.create({
         justifyContent: 'center',
     },
     search:{
-      marginBottom:15,
+      marginBottom:10,
     },
 
 });

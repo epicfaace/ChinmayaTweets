@@ -4,6 +4,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {signUp} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import Header from './Header';
+import LogOutHeader from './LogOutHeader';
 
 const width=Dimensions.get('window').width;
 const newWidth=width/2.2;
@@ -45,6 +47,7 @@ export default class VerifyOtp extends Component {
   render() {
     return (
       <View>
+        <Header/>
         <ScrollView style={styles.container}>
           <FontAwesome name={'user-plus'} color={'#333333'} size={50} style={styles.userIcon}/>
           <TextInput

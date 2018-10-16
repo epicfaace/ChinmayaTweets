@@ -28,7 +28,7 @@ class SearchBar extends Component{
     }
 
 
-    debounceSearchDeals=debounce(this.props.searchTweets,300);
+    debounceSearchDeals=debounce(this.props.searchTweets,200);
     handleChange=(searchTerm)=>{
       this.setState({searchTerm},()=>{
         this.debounceSearchDeals(this.state.searchTerm);
@@ -52,7 +52,7 @@ class SearchBar extends Component{
 
             <Modal
               visible={this.state.filterDisplay}
-              onRequestClose={() =>alert('Modal has been closed.')}
+              onRequestClose={() =>this.setState({filterDisplay:!this.state.filterDisplay})}
               animationType={"slide"} transparent={true}>
               <View style={styles.modal}>
                 <Text style={{alignItems:'center',fontWeight:'bold'}}>Pick Filter</Text>
@@ -69,21 +69,23 @@ class SearchBar extends Component{
 
             <TouchableHighlight onPress={()=>this.setState({filterDisplay:!this.state.filterDisplay})} style={[styles.leftContainer, {width:this.quarterWidth}]}>
               <View style={{flexDirection:'row'}}>
-                <FontAwesome name={'angle-down'} style={{fontSize:20,marginRight:5}}/>
+                <FontAwesome name={'angle-down'} style={{fontSize:20,marginRight:5,color:'black'}}/>
                 <Text style={styles.filter}>Filter: {this.state.filter}</Text>
               </View>
             </TouchableHighlight>
 
             <View style={[styles.rightContainer, {width:this.halfWidth}]}>
                 <FontAwesome name={'search'} style={styles.searchIcon}/>
+                <View style={styles.inputView}>
                 <TextInput
                     placeholder='Search...'
                     value = {this.state.searchTerm}
                     multiline={false}
-                    underlineColorAndroid="transparent"
                     style={styles.input}
+                    underlineColorAndroid="transparent"
                     onChangeText={this.handleChange}
                 />
+                </View>
             </View>
           </View>
         );
@@ -97,40 +99,48 @@ export default connect(null,mapDispatchToProps)(SearchBar);
 
 const styles=StyleSheet.create({
     input:{
-        fontFamily:"Times New Roman",
-        fontSize:20,
-        padding:10,
-        textAlign:'left',
-
-        marginRight:40,
+      fontFamily:"Times New Roman",
+      fontSize:16,
+      textAlign:'left',
+      padding:0,
+      width:200
+    },
+    inputView:{
+      marginLeft:10,
+      marginTop:Platform.OS === 'ios' ?5:2,
+      marginRight:50
     },
     mainContainer:{
-      flexDirection:'row',
+      flexDirection:'row-reverse',
       justifyContent:'space-between',
       backgroundColor:'#e6e6e6',
     },
     rightContainer:{
       flexDirection:'row',
-      backgroundColor:'#d1e0e0',
-      borderRadius:8,
-      marginRight:10
-    },
-    searchIcon:{
-      marginTop: Platform.OS === 'ios' ? 12:15,
-      marginLeft:12,
-      fontSize:15,
-      color:'#3366cc'
-    },
-    leftContainer:{
-      backgroundColor:'#d1e0e0',
+      backgroundColor:'white',
       borderRadius:8,
       marginLeft:10,
-      padding:10,
+      borderWidth:1,
+      borderColor:"#bbb",
+    },
+    leftContainer:{
+      backgroundColor:'white',
+      borderRadius:8,
+      marginRight:10,
+      padding:5,
+      borderWidth:1,
+      borderColor:"#bbb",
+      paddingLeft:10
+    },
+    searchIcon:{
+      marginTop: Platform.OS === 'ios' ? 7:8,
+      marginLeft:12,
+      fontSize:15,
+      color:'black'
     },
     filter:{
-      fontFamily:"Times New Roman",
-      fontSize:18,
-      color:"#8c8c8c"
+      fontSize:16,
+      color:"#b3b3b3"
     },
     modal:{
       height:'100%',
@@ -138,7 +148,7 @@ const styles=StyleSheet.create({
       backgroundColor:"#e6e6e6",
       padding:20,
       alignItems:'center',
-      marginTop:Platform.OS === 'ios' ?105:80,
+      marginTop:Platform.OS === 'ios' ?65:35,
     },
 
 });

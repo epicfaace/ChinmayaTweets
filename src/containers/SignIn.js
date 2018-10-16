@@ -5,6 +5,7 @@ import {signIn} from '../actions';
 import {tweets} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import Header from '../components/Header';
 
 const width=Dimensions.get('window').width;
 const newWidth=width/2.7;
@@ -29,13 +30,14 @@ class SignIn extends Component {
     }
   }
 
-  show=()=>{
-    alert('You Will Soon Get This Feature :)');
+  forgotPassword=()=>{
+    this.props.navigation.navigate('ForgotPassword');
   }
 
   render() {
     return (
       <View>
+        <Header/>
         <ScrollView style={styles.container}>
           <FontAwesome name={'user-circle'} color={'#333333'} size={100} style={styles.userIcon}/>
           <TextInput
@@ -49,14 +51,12 @@ class SignIn extends Component {
             secureTextEntry={ true }
             style={styles.input}
           />
-          {/*<Button title='Sign In' onPress={()=>this.signIn()} color={'white'} style={{color:'red'}}/>*/}
           <TouchableOpacity onPress={()=>this.signIn()} style={{padding:10,alignItems:'center',backgroundColor:'#039BE5'}} >
             <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>SIGN IN</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>this.show()} style={{marginVertical:20,padding:10,alignItems:'center',backgroundColor:'#039BE5'}} >
+          <TouchableOpacity onPress={()=>this.forgotPassword()} style={{marginVertical:20,padding:10,alignItems:'center',backgroundColor:'#039BE5'}} >
             <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>Forgot Password??</Text>
           </TouchableOpacity>
-          {/*<Button title='Forgot Password??' onPress={()=>this.show()} />*/}
         </ScrollView>
       </View>
     );
@@ -74,7 +74,8 @@ export default connect(mapStateToProps,mapDispatchToProps)(SignIn);
 
 const styles = StyleSheet.create({
   container: {
-    top:80,
+    paddingTop:80,
+    paddingBottom:100,
   },
   input: {
     height: 50,

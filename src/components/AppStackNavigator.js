@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
+import {Dimensions,TouchableOpacity,Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
 import Header from './Header';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SignIn from '../containers/SignIn'
@@ -10,8 +10,9 @@ import TweetList from './TweetList';
 import TweetDetail from './TweetDetail';
 import TweetItem from './TweetItem';
 import VerifyOtp from './VerifyOtp';
+import ForgotPassword from './ForgotPassword';
 
-
+const width=Dimensions.get('window').width;
 const AppStack = createStackNavigator({
     TweetList: { screen: TweetList },
     TweetDetail: { screen: TweetDetail },
@@ -26,6 +27,16 @@ const AppStack = createStackNavigator({
 
 const VerifyStack = createStackNavigator({
     VerifyOtp: { screen: VerifyOtp },
+  },
+  {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
+  });
+
+const ForgotPasswordStack = createStackNavigator({
+    ForgotPassword: { screen: ForgotPassword },
   },
   {
     headerMode: 'none',
@@ -52,7 +63,7 @@ const AuthStack = createMaterialBottomTabNavigator({
          <FontAwesome name={'user-plus'} color={'white'} size={22}/>
       )
     }
-  }
+  },
 },{
   initialRouteName:'SignIn',
   activeTintColor:'white',
@@ -64,6 +75,7 @@ const RootStack= createSwitchNavigator(
     App: AppStack,
     Auth: AuthStack,
     Verify:VerifyStack,
+    ForgotPassword:ForgotPasswordStack,
   },
   {
     initialRouteName: 'Auth',
@@ -75,7 +87,8 @@ export default class AppStackNavigator extends Component {
   render(){
     return (
       <View>
-        <Header/>
+        <View style={styles.container}>
+        </View>
         <RootStack/>
       </View>
     );
@@ -83,11 +96,7 @@ export default class AppStackNavigator extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+  container:{
+    width:width,
   },
-
-
 });

@@ -5,13 +5,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const width=Dimensions.get('window').width;
 export default class Header extends Component{
 
-  render(){  
+  render(){
     return(
       <View>
         <TouchableOpacity onPress={this.props.onClick} style={styles.heading}>
           <FontAwesome name={'home'} style={styles.homeIcon}/>
           <Text style={styles.headingText}>
-            CCMT TWEETS
+            Chinmaya Echoes
           </Text>
         </TouchableOpacity>
       </View>
@@ -29,12 +29,13 @@ const styles = StyleSheet.create({
   },
   homeIcon:{
     fontSize:25,
-    color:'#3366cc',
+    color:'black',
     marginRight:10,
   },
   headingText:{
     fontSize:20,
     fontWeight:'800',
     color:'#8c8c8c',
+    fontFamily:Platform.OS === 'ios' ? 'cochin' : 'monospace'
   }
 });

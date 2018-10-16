@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {Image,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
+import LogOutHeader from './LogOutHeader';
+
 class TweetDetail extends Component{
     titleXPos=new Animated.Value(0);
     animatedTitle=(direction=1)=>{
@@ -17,10 +19,12 @@ class TweetDetail extends Component{
     });
   }
     onBack=()=>{
-      console.log('lets go back')
       this.props.navigation.navigate('TweetList')
     }
 
+    onlogout=()=>{
+      this.props.navigation.navigate('Auth');
+    }
     componentDidMount() {
       const tweetId=this.props.navigation.state.params.tweetId;
       this.animatedTitle();
@@ -33,27 +37,30 @@ class TweetDetail extends Component{
         const tweetDetail=allTweets.filter((tweet)=>tweet.id==this.props.navigation.state.params.tweetId);
         console.log(tweetDetail);
         return(
-            <ScrollView>
-              <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
-                <Text style={styles.backLink}>
-                  <FontAwesome name={'chevron-left'} style={styles.chevron}/>
-                  Back
-                </Text>
-              </TouchableOpacity>
-              {tweetDetail.map(tweet=>
-                  <View key={tweet.id}>
-                    <Image
-                      source={{uri:tweet.featured_image}}
-                      style={styles.image}/>
-                    <View style={styles.titleView}>
-                      <Text style={styles.title}>{tweet.title.rendered}</Text>
+            <View style={styles.mainContainer}>
+              <LogOutHeader onlogout={()=>this.onlogout()}/>
+              <ScrollView>
+                <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
+                  <Text style={styles.backLink}>
+                    <FontAwesome name={'chevron-left'} style={styles.chevron}/>
+                    Back
+                  </Text>
+                </TouchableOpacity>
+                {tweetDetail.map(tweet=>
+                    <View key={tweet.id}>
+                      <Image
+                        source={{uri:tweet.featured_image}}
+                        style={styles.image}/>
+                      <View style={styles.titleView}>
+                        <Text style={styles.title}>{tweet.title.rendered}</Text>
+                      </View>
+                      <View style={styles.content}>
+                        <Text style={styles.contentMatter}>{tweet.content}</Text>
+                      </View>
                     </View>
-                    <View style={styles.content}>
-                      <Text style={styles.contentMatter}>{tweet.content}</Text>
-                    </View>
-                  </View>
-              )}
-            </ScrollView>
+                )}
+              </ScrollView>
+            </View>
         );
       }
       if(this.props.searchTweets!=='empty')
@@ -62,27 +69,30 @@ class TweetDetail extends Component{
         const tweetDetail=searchTweets.filter((tweet)=>tweet.id==this.props.navigation.state.params.tweetId);
         console.log(tweetDetail);
         return(
-            <ScrollView>
-              <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
-                <Text style={styles.backLink}>
-                  <FontAwesome name={'chevron-left'} style={styles.chevron}/>
-                  Back
-                </Text>
-              </TouchableOpacity>
-              {tweetDetail.map(tweet=>
-                  <View key={tweet.id}>
-                    <Image
-                      source={{uri:tweet.featured_image}}
-                      style={styles.image}/>
-                    <View style={styles.titleView}>
-                      <Text style={styles.title}>{tweet.post_title}</Text>
+            <View style={styles.mainContainer}>
+              <LogOutHeader onlogout={()=>this.onlogout()}/>
+              <ScrollView>
+                <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
+                  <Text style={styles.backLink}>
+                    <FontAwesome name={'chevron-left'} style={styles.chevron}/>
+                    Back
+                  </Text>
+                </TouchableOpacity>
+                {tweetDetail.map(tweet=>
+                    <View key={tweet.id}>
+                      <Image
+                        source={{uri:tweet.featured_image}}
+                        style={styles.image}/>
+                      <View style={styles.titleView}>
+                        <Text style={styles.title}>{tweet.post_title}</Text>
+                      </View>
+                      <View style={styles.content}>
+                        <Text style={styles.contentMatter}>{tweet.content}</Text>
+                      </View>
                     </View>
-                    <View style={styles.content}>
-                      <Text style={styles.contentMatter}>{tweet.content}</Text>
-                    </View>
-                  </View>
-              )}
-            </ScrollView>
+                )}
+              </ScrollView>
+            </View>
         );
       }
     }
@@ -139,5 +149,8 @@ goBack:{
 },
 chevron:{
   fontSize:16
+},
+mainContainer:{
+  marginBottom:35,
 }
 });

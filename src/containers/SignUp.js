@@ -4,6 +4,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {signUp} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import Header from '../components/Header';
 
 const width=Dimensions.get('window').width;
 const newWidth=width/2.2;
@@ -39,6 +40,7 @@ class SignUp extends Component {
   render() {
     return (
       <View>
+        <Header/>
         <ScrollView style={styles.container}>
           <FontAwesome name={'user-plus'} color={'#333333'} size={50} style={styles.userIcon}/>
           <View style={styles.passwordInput}>
@@ -95,8 +97,8 @@ export default connect(mapStateToProps,mapDispatchToProps)(SignUp);
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop:newHeight,
-    top:50,
+    paddingTop:50,
+    paddingBottom:120,
   },
   input: {
     height: 50,

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Image,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import LogOutHeader from './LogOutHeader';
 
 export default class TweetItem extends Component{
 
