@@ -152,5 +152,6 @@ chevron:{
 },
 mainContainer:{
   marginBottom:35,
+  marginTop:Platform.OS === 'ios' ?30:0,
 }
 });

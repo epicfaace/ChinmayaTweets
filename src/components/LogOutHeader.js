@@ -15,8 +15,8 @@ export default class LogOutHeader extends Component{
             </Text>
           </View>
           <TouchableOpacity onPress={this.props.onlogout} style={styles.goBack}>
-                <Text style={styles.backLink}>
-                  <FontAwesome name={'sign-out'} style={styles.chevron}/>
+                <Text style={styles.logOut}>
+                  <FontAwesome name={'sign-out'}/>
                    Log Out
                 </Text>
           </TouchableOpacity>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   headingText:{
     fontSize:18,
     fontWeight:'800',
-    color:'#8c8c8c',
+    color:'black',
     fontFamily:Platform.OS === 'ios' ? 'cochin' : 'monospace',
     marginLeft:10,
   },
@@ -46,4 +46,7 @@ const styles = StyleSheet.create({
     fontSize:22,
     color:'black',
   },
+  logOut:{
+    marginVertical:2,
+  }
 });

@@ -7,15 +7,14 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import TweetItem from './TweetItem';
 import LogOutHeader from './LogOutHeader';
 
-const width=Dimensions.get('window').width;
-const newWidth=width*0.18;
 
 class TweetList extends Component{
     titleXPos=new Animated.Value(0);
     animatedTitle=(direction=1)=>{
+    const width=Dimensions.get('window').width-230;
     Animated.timing(
         this.titleXPos,
-        {toValue: direction*newWidth,
+        {toValue: direction*(width/2),
           duration:700,
           easing:Easing.spring
         }).start(({finished})=> {
@@ -97,7 +96,8 @@ export default connect(mapStateToProps)(TweetList);
 const styles=StyleSheet.create({
     mainContainer:{
       backgroundColor:'#e6e6e6',
-      marginBottom:Platform.OS === 'ios' ? 28 : 35,
+      marginTop:Platform.OS === 'ios' ?20:0,
+      marginBottom:Platform.OS === 'ios' ?30:35,
     },
     scrollContainer:{
       marginBottom:150,

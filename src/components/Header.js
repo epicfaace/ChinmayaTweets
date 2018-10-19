@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
-import {Dimensions,TouchableHighlight,Text, View, StyleSheet,TouchableOpacity,Platform} from 'react-native';
+import {TouchableHighlight,Text, View, StyleSheet,TouchableOpacity,Platform} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const width=Dimensions.get('window').width;
 export default class Header extends Component{
 
   render(){
     return(
-      <View>
-        <TouchableOpacity onPress={this.props.onClick} style={styles.heading}>
+      <View style={styles.heading}>
           <FontAwesome name={'home'} style={styles.homeIcon}/>
           <Text style={styles.headingText}>
             Chinmaya Echoes
           </Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -21,11 +18,11 @@ export default class Header extends Component{
 
 const styles = StyleSheet.create({
   heading:{
-    padding:12,
-    backgroundColor:'#e6e6e6',
-    justifyContent:'center',
     flexDirection:'row',
-    width:width,
+    width:'100%',
+    justifyContent:'center',
+    backgroundColor:'#e6e6e6',
+    padding:10,
   },
   homeIcon:{
     fontSize:25,
@@ -35,7 +32,7 @@ const styles = StyleSheet.create({
   headingText:{
     fontSize:20,
     fontWeight:'800',
-    color:'#8c8c8c',
+    color:'black',
     fontFamily:Platform.OS === 'ios' ? 'cochin' : 'monospace'
   }
 });

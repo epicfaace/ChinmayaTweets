@@ -7,10 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "amazon-cognito-identity-js": "^3.0.3",
     "appcenter": "^1.8.1",
     "appcenter-analytics": "^1.8.1",
     "appcenter-crashes": "^1.8.1",
-    "aws-amplify": "^1.1.6",
+    "aws-amplify": "^1.1.7",
     "lodash.debounce": "^4.0.8",
     "react": "16.5.0",
     "react-native": "0.57.2",

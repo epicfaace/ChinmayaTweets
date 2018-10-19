@@ -2,7 +2,7 @@ import {SIGN_IN,SIGN_UP,ALL_TWEETS,SEARCH_TWEETS} from './actionTypes'
 // import axios from 'axios';
 import ajax from '../Utils/ajax';
 
-export function signIn(username,password){
+export async function signIn(username,password){
    return{
      type:SIGN_IN,
      username,
@@ -35,6 +35,7 @@ export async function searchTweets(term){
      tweets:request,
    };
 }
+
 
 // export function tweets(tweets){
 //

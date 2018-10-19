@@ -13,6 +13,8 @@ target 'ChinmayaTweet' do
   
 
   platform :ios, '9.0'
+  pod 'RNAWSCognito', :path => '../node_modules/amazon-cognito-identity-js'
+
   target 'ChinmayaTweetTests' do
     inherit! :search_paths
     # Pods for testing

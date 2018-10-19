@@ -8,7 +8,7 @@ import Header from './Header';
 import LogOutHeader from './LogOutHeader';
 
 const width=Dimensions.get('window').width;
-const newWidth=width/2.2;
+const newWidth=width/2.4;
 
 export default class VerifyOtp extends Component {
   state = {
@@ -46,16 +46,16 @@ export default class VerifyOtp extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Header/>
-        <ScrollView style={styles.container}>
+        <ScrollView>
           <FontAwesome name={'user-plus'} color={'#333333'} size={50} style={styles.userIcon}/>
           <TextInput
             placeholder='Enter your OTP here'
             onChangeText={value => this.onChangeText('code',value)}
             style={styles.input}
           />
-          <TouchableOpacity onPress={()=>this.verifyOtp()} style={{padding:10,alignItems:'center',backgroundColor:'#039BE5'}} >
+          <TouchableOpacity onPress={()=>this.verifyOtp()} style={styles.button} >
             <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>Verify OTP</Text>
           </TouchableOpacity>
         </ScrollView>
@@ -66,23 +66,33 @@ export default class VerifyOtp extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop:newHeight,
-    top:50,
+    flex:1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop:Platform.OS === 'ios' ?20:0,
   },
   input: {
     height: 50,
     backgroundColor: '#ededed',
-    margin:10,
+    marginVertical:10,
     paddingLeft:10,
-    borderRadius:10
+    borderRadius:10,
+    borderColor:'#d9d9d9',
+    borderWidth:1,
+    marginHorizontal:30,
   },
   userIcon:{
-    left:newWidth,
+    marginHorizontal:newWidth,
     marginBottom:20,
+    marginTop:Platform.OS === 'ios' ?80:35,
   },
-  starIcon:{
-    position:'absolute',
-    right:20,
-    top:25,
+  button:{
+    padding:10,
+    alignItems:'center',
+    backgroundColor:'#1a8cff',
+    borderRadius:6,
+    marginHorizontal:100,
+    marginVertical:10,
   }
 });
