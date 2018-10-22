@@ -2,9 +2,9 @@ import React,{Component} from 'react';
 import {Image,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
-import LogOutHeader from './LogOutHeader';
+import LogOutHeader from '../containers/LogOutHeader';
 
-class TweetDetail extends Component{
+export default class TweetDetail extends Component{
     titleXPos=new Animated.Value(0);
     animatedTitle=(direction=1)=>{
     Animated.timing(
@@ -25,17 +25,9 @@ class TweetDetail extends Component{
     onlogout=()=>{
       this.props.navigation.navigate('Auth');
     }
-    componentDidMount() {
-      const tweetId=this.props.navigation.state.params.tweetId;
-      this.animatedTitle();
-    }
 
     render() {
-      if(this.props.allTweets!=='empty')
-      {
-        const allTweets=this.props.allTweets;
-        const tweetDetail=allTweets.filter((tweet)=>tweet.id==this.props.navigation.state.params.tweetId);
-        console.log(tweetDetail);
+      const tweet=this.props.navigation.state.params.tweet;
         return(
             <View style={styles.mainContainer}>
               <LogOutHeader onlogout={()=>this.onlogout()}/>
@@ -46,40 +38,7 @@ class TweetDetail extends Component{
                     Back
                   </Text>
                 </TouchableOpacity>
-                {tweetDetail.map(tweet=>
-                    <View key={tweet.id}>
-                      <Image
-                        source={{uri:tweet.featured_image}}
-                        style={styles.image}/>
-                      <View style={styles.titleView}>
-                        <Text style={styles.title}>{tweet.title.rendered}</Text>
-                      </View>
-                      <View style={styles.content}>
-                        <Text style={styles.contentMatter}>{tweet.content}</Text>
-                      </View>
-                    </View>
-                )}
-              </ScrollView>
-            </View>
-        );
-      }
-      if(this.props.searchTweets!=='empty')
-      {
-        const searchTweets=this.props.searchTweets;
-        const tweetDetail=searchTweets.filter((tweet)=>tweet.id==this.props.navigation.state.params.tweetId);
-        console.log(tweetDetail);
-        return(
-            <View style={styles.mainContainer}>
-              <LogOutHeader onlogout={()=>this.onlogout()}/>
-              <ScrollView>
-                <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
-                  <Text style={styles.backLink}>
-                    <FontAwesome name={'chevron-left'} style={styles.chevron}/>
-                    Back
-                  </Text>
-                </TouchableOpacity>
-                {tweetDetail.map(tweet=>
-                    <View key={tweet.id}>
+                    <View>
                       <Image
                         source={{uri:tweet.featured_image}}
                         style={styles.image}/>
@@ -90,19 +49,11 @@ class TweetDetail extends Component{
                         <Text style={styles.contentMatter}>{tweet.content}</Text>
                       </View>
                     </View>
-                )}
               </ScrollView>
             </View>
         );
-      }
-    }
+   }
 }
-
-const mapStateToProps=(state)=>{
-  return{allTweets:state.TweetsReducer,searchTweets:state.SearchReducer};
-}
-
-export default connect(mapStateToProps)(TweetDetail);
 
 
 const styles=StyleSheet.create({

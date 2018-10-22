@@ -4,8 +4,9 @@ import {Provider} from 'react-redux';
 import {createStore,applyMiddleware} from 'redux';
 import ReduxPromise from 'redux-promise';
 import reducers from './src/reducers';
+import thunk from 'redux-thunk';
 
-const createStoreWithMiddleWare=applyMiddleware(ReduxPromise)(createStore);
+const createStoreWithMiddleWare=applyMiddleware(thunk)(createStore);
 
 export default class App extends Component {
   render() {
