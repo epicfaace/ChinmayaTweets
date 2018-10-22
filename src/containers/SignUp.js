@@ -119,15 +119,19 @@ class SignUp extends Component {
                   keyboardType='numeric'
                   style={styles.modalInput}
                 />
-                <Button
-                  title='Confirm'
-                  onPress={()=>this.confirm()}
-                  isLoading={isAuthenticating}
-                />
-                <Button
-                  title='Cancel'
-                  onPress={this.props.closeSignUpModal}
-                />
+                <View style={{marginBottom:10}}>
+                  <Button
+                    title='Confirm'
+                    onPress={()=>this.confirm()}
+                    isLoading={isAuthenticating}
+                  />
+                </View>
+                <View>
+                  <Button
+                    title='Cancel'
+                    onPress={this.props.closeSignUpModal}
+                  />
+                </View>
               </View>
             </Modal>
           )
@@ -164,7 +168,7 @@ const styles = StyleSheet.create({
     borderColor:'#d9d9d9',
     borderRadius:10,
     marginVertical:20,
-    padding:Platform.OS === 'ios' ?10:0,
+    padding:Platform.OS === 'ios' ?10:5,
   },
   input: {
     height: 50,

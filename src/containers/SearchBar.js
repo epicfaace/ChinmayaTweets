@@ -3,7 +3,7 @@ import {Button,Modal,Text,View,TouchableHighlight,TextInput,StyleSheet,Touchable
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {searchTweets} from '../actions';
+import {filter} from '../actions';
 import debounce from 'lodash.debounce';
 
 class SearchBar extends Component{
@@ -14,7 +14,8 @@ class SearchBar extends Component{
             searchTerm:'',
             multiLine:true,
             filterDisplay:false,
-            filter:'All'
+            filter:'',
+            filterName:'All',
         }
     }
 
@@ -22,29 +23,34 @@ class SearchBar extends Component{
     halfWidth=this.width/1.8;
     quarterWidth=this.width/2.7;
 
-    setFilter=(title)=>{
-      this.setState({filter:title});
+    setFilter=(title,value)=>{
+      this.setState({filterName:title})
+      this.setState({filter:value});
       this.setState({filterDisplay:!this.state.filterDisplay})
     }
 
 
-    debounceSearchDeals=debounce(this.props.searchTweets,200);
+    debounceSearchDeals=debounce(this.props.filter,200);
     handleChange=(searchTerm)=>{
       this.setState({searchTerm},()=>{
-        this.debounceSearchDeals(this.state.searchTerm);
+        this.debounceSearchDeals(this.state.searchTerm,this.state.filter);
       });
     }
 
     render(){
+      this.props.filter(this.state.searchTerm,this.state.filter)
       const filter=[
         {
             title:'All',
+            value:'',
         },
         {
-            title:'Video',
+            title:'Videos',
+            value:'Videos',
         },
         {
-            title:'Post',
+            title:'Quotes',
+            value:'Quotes',
         },
       ]
         return(
@@ -57,7 +63,7 @@ class SearchBar extends Component{
               <View style={styles.modal}>
                 <Text style={{alignItems:'center',fontWeight:'bold'}}>Pick Filter</Text>
                 {filter.map((value,index)=>{
-                  return <TouchableHighlight style={{padding:20}} key={index} onPress={()=>this.setFilter(value.title)}>
+                  return <TouchableHighlight style={{padding:20}} key={index} onPress={()=>this.setFilter(value.title,value.value)}>
                     <Text>{value.title}</Text>
                   </TouchableHighlight>
                 })}
@@ -70,7 +76,7 @@ class SearchBar extends Component{
             <TouchableHighlight onPress={()=>this.setState({filterDisplay:!this.state.filterDisplay})} style={[styles.leftContainer, {width:this.quarterWidth}]}>
               <View style={{flexDirection:'row'}}>
                 <FontAwesome name={'angle-down'} style={{fontSize:20,marginRight:5,color:'black'}}/>
-                <Text style={styles.filter}>Filter: {this.state.filter}</Text>
+                <Text style={styles.filter}>Filter: {this.state.filterName}</Text>
               </View>
             </TouchableHighlight>
 
@@ -93,7 +99,7 @@ class SearchBar extends Component{
 }
 
 const mapDispatchToProps=(dispatch)=>{
-  return bindActionCreators({searchTweets},dispatch);
+  return bindActionCreators({filter},dispatch);
 }
 export default connect(null,mapDispatchToProps)(SearchBar);
 

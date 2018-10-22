@@ -86,15 +86,18 @@ class ForgotPassword extends Component {
                   style={styles.modalInput}
                 />
 
-                <Button
-                  title='Confirm'
-                  onPress={()=>this.confirm()}
-                  style={styles.modalButton}
-                />
-                <Button
-                  title='Cancel'
-                  onPress={this.props.onForgotPasswordClick}
-                />
+                  <View style={{marginBottom:10}}>
+                    <Button
+                      title='Confirm'
+                      onPress={()=>this.confirm()}
+                    />
+                  </View>
+                  <View>
+                    <Button
+                      title='Cancel'
+                      onPress={this.props.onForgotPasswordClick}
+                    />
+                  </View>
               </View>
             </Modal>
           )
@@ -131,8 +134,8 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:'#d9d9d9',
     borderRadius:10,
-    marginVertical:20,
-    padding:Platform.OS === 'ios' ?10:0,
+    marginBottom:20,
+    padding:Platform.OS === 'ios' ?10:5,
   },
   input: {
     height: 50,

@@ -63,27 +63,6 @@ class TweetList extends Component{
       const { TweetsReducer: {
         tweets
       }} = this.props;
-      const { SearchReducer: {
-        searchtweets
-      }} = this.props;
-      if(searchtweets!==null)
-      {
-        return(
-          <View style={styles.mainContainer}>
-            <LogOutHeader/>
-            <View style={styles.search}>
-              <SearchBar/>
-            </View>
-            <View style={styles.scrollContainer}>
-              <FlatList
-                data={searchtweets}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => <TweetItem onPress={()=>this.goToDetail(item.id)} tweet={item}/>}
-                />
-            </View>
-          </View>
-        );
-      }
       if(tweets!==null)
       {
         return(
@@ -112,7 +91,7 @@ class TweetList extends Component{
 
 
 const mapStateToProps=(state)=>{
-  return{TweetsReducer: state.TweetsReducer,SearchReducer:state.SearchReducer}
+  return{TweetsReducer: state.TweetsReducer}
 }
 
 const mapDispatchToProps=(dispatch)=>{

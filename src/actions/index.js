@@ -141,7 +141,7 @@ function confirmSignUpFailure(error) {
 
 export function fetchtweets(){
     return (dispatch) => {
-      const url = `https://staging.chinmayamission.com/wp-json/wp/v2/tweet`;
+      const url = `https://staging.chinmayamission.com/wp-json/gcmw/v1/tweet/search`;
       fetch(url)
          .then(response => {
            response.json().
@@ -154,10 +154,11 @@ export function fetchtweets(){
     }
 }
 
-export function searchTweets(term){
+export function filter(term,filter){
     return (dispatch) => {
-      const TERM=term
-      const url = `https://staging.chinmayamission.com/wp-json/gcmw/v1/tweet/search?term=${TERM}`;
+      const TERM=term;
+      const FILTER=filter;
+      const url = `https://staging.chinmayamission.com/wp-json/gcmw/v1/tweet/search?term=${TERM}&category=${FILTER}`;
       fetch(url)
          .then(response => {
            response.json().
@@ -170,14 +171,6 @@ export function searchTweets(term){
          .catch();
     }
 }
-
-function searchtweetlist(tweets){
-  return{
-    type:SEARCH_TWEETS,
-    tweets
-};
-}
-
 
 function tweetlist(tweets){
   return{
