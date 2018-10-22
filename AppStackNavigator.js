@@ -1,87 +1,64 @@
 import React, {Component} from 'react';
 import {Button,Platform, StyleSheet, Text, View} from 'react-native';
 import {createStackNavigator,createSwitchNavigator} from 'react-navigation';
-import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import SignIn from './src/containers/SignIn';
-import SignUp from './src/containers/SignUp';
-import TweetList from './src/components/TweetList';
-import TweetDetail from './src/components/TweetDetail';
-import TweetItem from './src/components/TweetItem';
-import VerifyOtp from './src/components/VerifyOtp';
-import ForgotPassword from './src/components/ForgotPassword';
+import AppStack from './src/stacks/AppStack';
+import AuthStack from './src/stacks/AuthStack';
+import ForgotPasswordStack from './src/stacks/ForgotPasswordStack';
+import config from './src/Utils/aws-exports';
+import Amplify, { Auth } from 'aws-amplify';
+Amplify.configure(config);
+import { connect } from 'react-redux'
 
-const AuthStack = createMaterialBottomTabNavigator(
-  {
-    SignIn: {
-      screen: SignIn,
-      navigationOptions:{
-        tabBarLabel:'Sign In',
-        tabBarIcon:({tintColor})=>(
-           <FontAwesome name={'sign-in'} color={'white'} size={22}/>
-        )
-      }
-    },
-    Register: {
-      screen: SignUp,
-      navigationOptions:{
-        tabBarLabel:'Register',
-        tabBarIcon:({tintColor})=>(
-           <FontAwesome name={'user-plus'} color={'white'} size={22}/>
-        )
-      }
-    },
-  },
-  {
-    initialRouteName:'SignIn',
-    activeTintColor:'white',
-    shifting:true,
+class AppStackNavigator extends React.Component {
+  state = {
+    user: {},
+    isLoading: true
   }
-);
-const AppStack = createStackNavigator({
-    TweetList: { screen: TweetList },
-    TweetDetail: { screen: TweetDetail },
-    TweetItem: { screen: TweetItem },
-  },
-  {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
-    }
-  });
-const VerifyStack = createStackNavigator({
-    VerifyOtp: { screen: VerifyOtp },
-  },
-  {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
-    }
-  });
+  async componentDidMount() {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      this.setState({ user, isLoading: false })
+    } catch (err) {
+      this.setState({ isLoading: false })
 
-const ForgotPasswordStack = createStackNavigator({
-    ForgotPassword: { screen: ForgotPassword },
-  },
-  {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
     }
-  });
-const RootStack= createSwitchNavigator(
-  {
-    App: AppStack,
-    Auth: AuthStack,
-    Verify:VerifyStack,
-    ForgotPassword:ForgotPasswordStack,
-  },
-  {
-    initialRouteName: 'Auth',
   }
-);
-
-export default class AppStackNavigator extends React.Component {
+  async componentWillReceiveProps(nextProps) {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      this.setState({ user })
+    } catch (err) {
+      this.setState({ user: {} })
+    }
+  }
   render() {
-    return <RootStack/>;
+    if (this.state.isLoading) return null
+    let loggedIn = false
+    if (this.state.user.username) {
+      loggedIn = true
+    }
+    const { ForgotPasswordReducer: {
+      forgotPasswordClicked
+    }} = this.props
+
+    if(forgotPasswordClicked){
+      return <ForgotPasswordStack/>
+    }
+
+    if (loggedIn) {
+      return (
+        <AppStack />
+      )
+    }
+    return (
+      <AuthStack />
+    )
   }
 }
+
+const mapStateToProps = state => ({
+  SignInReducer: state.SignInReducer,
+  ForgotPasswordReducer:state.ForgotPasswordReducer
+})
+
+export default connect(mapStateToProps)(AppStackNavigator)

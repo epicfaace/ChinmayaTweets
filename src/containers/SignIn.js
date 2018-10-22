@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Dimensions,ScrollView,Modal,TouchableOpacity,Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
+import {Alert,Dimensions,ScrollView,Modal,TouchableOpacity,Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {signIn} from '../actions';
-import {tweets} from '../actions';
+import {authenticate,onForgotPasswordClick} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Header from '../components/Header';
+
 
 const width=Dimensions.get('window').width;
 const IconWidth=width/2.8;
@@ -22,22 +22,26 @@ class SignIn extends Component {
     this.setState({ [key]:value })
   }
 
-  signIn=()=>{
-    // this.props.signIn(this.state.username,this.state.password);
-    // console.log(this.props.authenticated);
-    var authenticated=true;
-    if(authenticated){
-      this.props.tweets();
-      this.props.navigation.navigate('App');
+  signIn=()=> {
+    const { username, password } = this.state
+    if(username===''||password==='')
+    {
+      Alert.alert('Fill all fields')
     }
+    this.props.authenticate(username, password)
   }
 
   forgotPassword=()=>{
-    console.log(this.props.authenticated);
-    //this.props.navigation.navigate('ForgotPassword');
+      this.props.onForgotPasswordClick()
   }
 
   render() {
+    const { SignInReducer: {
+      signInErrorMessage,
+      isAuthenticating,
+      signInError,
+      showSignInConfirmationModal
+    }} = this.props
     return (
       <View style={styles.container}>
         <Header/>
@@ -55,7 +59,9 @@ class SignIn extends Component {
                 secureTextEntry={ true }
                 style={styles.input}
               />
-              <TouchableOpacity onPress={()=>this.signIn()} style={styles.button} >
+              {this.state.password!==null && (<Text style={[styles.errorMessage, signInError && { color: 'black' }]}>{signInErrorMessage}</Text>)
+              }
+              <TouchableOpacity isLoading={isAuthenticating} onPress={()=>this.signIn()} style={styles.button} >
                 <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>SIGN IN</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>this.forgotPassword()} style={styles.button} >
@@ -69,11 +75,11 @@ class SignIn extends Component {
 }
 
 const mapDispatchToProps=(dispatch)=>{
-  return bindActionCreators({signIn,tweets},dispatch);
+  return bindActionCreators({authenticate,onForgotPasswordClick},dispatch);
 }
 
 const mapStateToProps=(state)=>{
-  return{authenticated:state.SignInReducer};
+  return{SignInReducer:state.SignInReducer};
 }
 export default connect(mapStateToProps,mapDispatchToProps)(SignIn);
 

@@ -1,9 +1,18 @@
-const SearchReducer=(state=[],action)=>{
+const initialState = {
+  searchtweets: null,
+}
+
+const SearchReducer=(state=initialState,action)=>{
   switch (action.type) {
     case 'SEARCH_TWEETS':
-    return action.tweets;
+    console.log(action.tweets);
+    return {
+      ...state,
+      searchtweets: action.tweets,
+    }
+
     default:
-    return 'empty';
+    return state;
   }
 }
 

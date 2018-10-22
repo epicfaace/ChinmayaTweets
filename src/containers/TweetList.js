@@ -2,13 +2,19 @@ import React,{Component} from 'react';
 import {Image,Dimensions,ScrollView,TouchableOpacity,Button,View,Text,FlatList,StyleSheet,Platform,Animated,Easing} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import SearchBar from '../containers/SearchBar';
+import SearchBar from './SearchBar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import TweetItem from './TweetItem';
+import TweetItem from '../components/TweetItem';
 import LogOutHeader from './LogOutHeader';
+import Amplify, { Auth } from 'aws-amplify';
+import config from '../Utils/aws-exports';
+import {logOut} from '../actions';
+import {fetchtweets} from '../actions';
+Amplify.configure(config)
 
 
 class TweetList extends Component{
+
     titleXPos=new Animated.Value(0);
     animatedTitle=(direction=1)=>{
     const width=Dimensions.get('window').width-230;
@@ -24,12 +30,18 @@ class TweetList extends Component{
         });
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+      this.props.fetchtweets();
       this.animatedTitle();
     }
 
     goToDetail=(Id)=>{
-      this.props.navigation.navigate('TweetDetail',{tweetId:Id});
+      const { TweetsReducer: {
+        tweets
+      }} = this.props;
+
+      const tweet=tweets.find((tweet) => tweet.id === Id);
+      this.props.navigation.navigate('TweetDetail',{tweet:tweet});
 
     }
 
@@ -37,19 +49,34 @@ class TweetList extends Component{
       this.props.navigation.navigate('Auth');
     }
 
+    logout=()=> {
+      Auth.signOut()
+        .then(() => {
+          this.props.logOut()
+        })
+        .catch(err => {
+          console.log('err: ', err)
+        })
+    }
+
     render() {
-      if(this.props.allTweets!=='empty')
+      const { TweetsReducer: {
+        tweets
+      }} = this.props;
+      const { SearchReducer: {
+        searchtweets
+      }} = this.props;
+      if(searchtweets!==null)
       {
-        const allTweets=this.props.allTweets;
         return(
           <View style={styles.mainContainer}>
-            <LogOutHeader onlogout={()=>this.onlogout()}/>
+            <LogOutHeader/>
             <View style={styles.search}>
               <SearchBar/>
             </View>
             <View style={styles.scrollContainer}>
               <FlatList
-                data={allTweets}
+                data={searchtweets}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({item}) => <TweetItem onPress={()=>this.goToDetail(item.id)} tweet={item}/>}
                 />
@@ -57,19 +84,17 @@ class TweetList extends Component{
           </View>
         );
       }
-      if(this.props.searchTweets!=='empty')
+      if(tweets!==null)
       {
-        const searchTweets=this.props.searchTweets;
-        console.log(searchTweets);
         return(
           <View style={styles.mainContainer}>
-            <LogOutHeader onBack={()=>this.onBack()}/>
+            <LogOutHeader/>
             <View style={styles.search}>
               <SearchBar/>
             </View>
             <View style={styles.scrollContainer}>
               <FlatList
-                data={searchTweets}
+                data={tweets}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({item}) => <TweetItem onPress={()=>this.goToDetail(item.id)} tweet={item}/>}
                 />
@@ -86,12 +111,15 @@ class TweetList extends Component{
 }
 
 
-
 const mapStateToProps=(state)=>{
-  return{allTweets:state.TweetsReducer ,searchTweets:state.SearchReducer}
+  return{TweetsReducer: state.TweetsReducer,SearchReducer:state.SearchReducer}
 }
 
-export default connect(mapStateToProps)(TweetList);
+const mapDispatchToProps=(dispatch)=>{
+  return bindActionCreators({logOut,fetchtweets},dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TweetList);
 
 const styles=StyleSheet.create({
     mainContainer:{

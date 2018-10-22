@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Dimensions,ScrollView,Modal,TouchableOpacity, Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
+import {Alert,Dimensions,ScrollView,Modal,TouchableOpacity, Button,TextInput,Platform, StyleSheet, Text, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {signUp} from '../actions';
+import {createUser} from '../actions';
+import {confirmUserSignUp,closeSignUpModal} from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Header from '../components/Header'
@@ -10,22 +11,40 @@ const width=Dimensions.get('window').width;
 const newWidth=width/2.4;
 const height=Dimensions.get('window').height;
 const newHeight=height/4;
+
+const initialState = {
+  username: '',
+  password: '',
+  email: '',
+  phone_number: '',
+  authCode: '',
+  filterDisplay:false,
+}
 class SignUp extends Component {
-  state = {
-    username:'',
-    password:'',
-    email:'',
-    phone_number:'',
-  }
+  state = initialState
   onChangeText(key,value) {
     this.setState({ [key]:value })
   }
 
-  signUp=()=>{
-    // const {username,password,email,phone_number}=this.state;
-    // this.props.signUp(username,password,email,phone_number);
-    // alert("Hurray!! You Signed Up");
-    this.props.navigation.navigate('Verify');
+  signUp=()=> {
+    const { username, password, email, phone_number } = this.state;
+    if(username===''||password===''||email===''||phone_number==='')
+    {
+      Alert.alert('Fill all fields')
+    }
+    this.props.createUser(username,password,email,phone_number)
+  }
+
+  confirm=()=> {
+    const { authCode, username } = this.state
+    this.props.confirmUserSignUp(username, authCode)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { SignUpReducer: { showSignUpConfirmationModal }} = nextProps
+    if (!showSignUpConfirmationModal && this.props.SignUpReducer.showSignUpConfirmationModal) {
+      this.setState(initialState)
+    }
   }
 
 
@@ -40,6 +59,12 @@ class SignUp extends Component {
   }
 
   render() {
+    const { SignUpReducer: {
+      showSignUpConfirmationModal,
+      isAuthenticating,
+      signUpError,
+      signUpErrorMessage
+    }} = this.props
     return (
       <View style={styles.container}>
         <Header/>
@@ -70,6 +95,7 @@ class SignUp extends Component {
               placeholder='Phone'
               onChangeText={value => this.onChangeText('phone_number',value)}
               value={this.state.phone_number}
+              keyboardType='numeric'
               style={styles.input}
             />
             <TextInput
@@ -77,24 +103,45 @@ class SignUp extends Component {
               onChangeText={value => this.onChangeText('email',value)}
               style={styles.input}
             />
-            <TouchableOpacity onPress={()=>this.signUp()} style={styles.button} >
+            <TouchableOpacity onPress={()=>this.signUp()} isLoading={isAuthenticating} style={styles.button} >
               <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>Sign Up</Text>
             </TouchableOpacity>
+        <Text style={[styles.errorMessage, signUpError && { color: 'black' }]}>{signUpErrorMessage}</Text>
         </ScrollView>
+        {
+          showSignUpConfirmationModal && (
+            <Modal onRequestClose={this.props.closeSignUpModal}>
+              <View style={styles.modal}>
+                <TextInput
+                  placeholder="Authorization Code"
+                  onChangeText={value => this.onChangeText('authCode',value)}
+                  value={this.state.authCode}
+                  keyboardType='numeric'
+                  style={styles.modalInput}
+                />
+                <Button
+                  title='Confirm'
+                  onPress={()=>this.confirm()}
+                  isLoading={isAuthenticating}
+                  style={styles.modalButton}
+                />
+              </View>
+            </Modal>
+          )
+        }
       </View>
     );
   }
 }
+const mapStateToProps=(state)=>{
+  return{SignUpReducer:state.SignUpReducer};
+}
 
 const mapDispatchToProps=(dispatch)=>{
-  return bindActionCreators({signUp},dispatch)
+  return bindActionCreators({confirmUserSignUp,createUser,closeSignUpModal},dispatch);
 }
 
-const mapStateToProps=(state)=>{
-  return{signedUp:state.SignUpReducer};
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
 
 const styles = StyleSheet.create({
   container: {
@@ -103,6 +150,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop:Platform.OS === 'ios' ?20:0,
+  },
+  modal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalInput:{
+    borderWidth:1,
+    borderColor:'#d9d9d9',
+    borderRadius:10,
+    marginVertical:20,
   },
   input: {
     height: 50,

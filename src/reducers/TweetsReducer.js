@@ -1,9 +1,17 @@
-const TweetsReducer=(state=[],action)=>{
+const initialState = {
+  tweets: null,
+}
+
+const TweetsReducer=(state=initialState,action)=>{
   switch (action.type) {
     case 'ALL_TWEETS':
-    return action.tweets;
+    return {
+      ...state,
+      tweets: action.tweets,
+    }
+
     default:
-    return 'empty';
+    return state;
   }
 }
 
