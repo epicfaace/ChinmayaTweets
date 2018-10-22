@@ -42,12 +42,14 @@ class SignIn extends Component {
       signInError,
       showSignInConfirmationModal
     }} = this.props
+    const { username, password } = this.state
     return (
       <View style={styles.container}>
         <Header/>
         <ScrollView>
           <View>
             <FontAwesome name={'user-circle'} color={'#333333'} size={100} style={styles.userIcon}/>
+              {signInErrorMessage!==''&&<Text style={{marginHorizontal:30,color:'black'}}>Invalid Username or Password</Text>}
               <TextInput
                 placeholder='Username'
                 onChangeText={value => this.onChangeText('username',value)}
@@ -59,8 +61,6 @@ class SignIn extends Component {
                 secureTextEntry={ true }
                 style={styles.input}
               />
-              {this.state.password!==null && (<Text style={[styles.errorMessage, signInError && { color: 'black' }]}>{signInErrorMessage}</Text>)
-              }
               <TouchableOpacity isLoading={isAuthenticating} onPress={()=>this.signIn()} style={styles.button} >
                 <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>SIGN IN</Text>
               </TouchableOpacity>

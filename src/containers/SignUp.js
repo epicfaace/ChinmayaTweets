@@ -70,6 +70,7 @@ class SignUp extends Component {
         <Header/>
         <ScrollView>
           <FontAwesome name={'user-plus'} color={'#333333'} size={50} style={styles.userIcon}/>
+            {signUpErrorMessage!==''&&<Text style={[styles.errorMessage, signUpError && { color: 'black' }]}>{signUpErrorMessage}</Text>}
             <View style={styles.passwordInput}>
               <TextInput
                 placeholder='Username'
@@ -106,7 +107,6 @@ class SignUp extends Component {
             <TouchableOpacity onPress={()=>this.signUp()} isLoading={isAuthenticating} style={styles.button} >
               <Text style={{fontWeight:'900',fontSize:16,color:'white'}}>Sign Up</Text>
             </TouchableOpacity>
-        <Text style={[styles.errorMessage, signUpError && { color: 'black' }]}>{signUpErrorMessage}</Text>
         </ScrollView>
         {
           showSignUpConfirmationModal && (
@@ -123,7 +123,10 @@ class SignUp extends Component {
                   title='Confirm'
                   onPress={()=>this.confirm()}
                   isLoading={isAuthenticating}
-                  style={styles.modalButton}
+                />
+                <Button
+                  title='Cancel'
+                  onPress={this.props.closeSignUpModal}
                 />
               </View>
             </Modal>
@@ -161,6 +164,7 @@ const styles = StyleSheet.create({
     borderColor:'#d9d9d9',
     borderRadius:10,
     marginVertical:20,
+    padding:Platform.OS === 'ios' ?10:0,
   },
   input: {
     height: 50,

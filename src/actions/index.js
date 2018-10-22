@@ -114,7 +114,7 @@ export function confirmUserSignUp(username, authCode) {
         }, 0)
       })
       .catch(err => {
-        console.log('error signing up: ', err)
+        Alert.alert(err.message || JSON.stringify(err));
         dispatch(confirmSignUpFailure(err))
       });
   }
@@ -198,7 +198,9 @@ export function userForgotPassword(username){
       .then(data =>
         dispatch(confirmUser())
       )
-      .catch();
+      .catch(err => {
+        Alert.alert('Username not Found');
+      });
   }
 }
 
@@ -218,7 +220,9 @@ export function confirmForgotPassword(username,code,new_password){
           Alert.alert('Successfully Changed Password', 'Please Sign')
         }, 0)
     })
-    .catch();
+    .catch(err => {
+      Alert.alert(err.message || JSON.stringify(err));
+    });
   }
 }
 

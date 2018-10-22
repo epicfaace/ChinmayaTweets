@@ -37,6 +37,10 @@ class ForgotPassword extends Component {
     this.props.userForgotPassword(this.state.username)
   }
 
+  onBack=()=>{
+    this.props.cancelForgotPassword();
+  }
+
   render() {
     const { ForgotPasswordReducer: {
       showForgotPasswordModal,
@@ -45,6 +49,12 @@ class ForgotPassword extends Component {
       <View style={styles.container}>
         <Header/>
         <ScrollView>
+          <TouchableOpacity onPress={()=>this.onBack()} style={styles.goBack}>
+            <Text style={styles.backLink}>
+              <FontAwesome name={'chevron-left'} style={styles.chevron}/>
+              Back
+            </Text>
+          </TouchableOpacity>
           <FontAwesome name={'user-circle'} color={'#333333'} size={100} style={styles.userIcon}/>
           <View style={{marginHorizontal:20}}>
           <TextInput
@@ -66,18 +76,24 @@ class ForgotPassword extends Component {
                   onChangeText={value => this.onChangeText('authCode',value)}
                   value={this.state.authCode}
                   keyboardType='numeric'
+                  style={styles.modalInput}
                 />
                 <TextInput
                   placeholder="New Password"
                   keyboardType='numeric'
                   onChangeText={value => this.onChangeText('new_password',value)}
                   value={this.state.new_password}
+                  style={styles.modalInput}
                 />
 
                 <Button
                   title='Confirm'
                   onPress={()=>this.confirm()}
                   style={styles.modalButton}
+                />
+                <Button
+                  title='Cancel'
+                  onPress={this.props.onForgotPasswordClick}
                 />
               </View>
             </Modal>
@@ -105,10 +121,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop:Platform.OS === 'ios' ?20:0,
   },
+
   modal: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  modalInput:{
+    borderWidth:1,
+    borderColor:'#d9d9d9',
+    borderRadius:10,
+    marginVertical:20,
+    padding:Platform.OS === 'ios' ?10:0,
   },
   input: {
     height: 50,
@@ -123,5 +147,20 @@ const styles = StyleSheet.create({
     marginHorizontal:130,
     marginBottom:20,
     marginTop:Platform.OS === 'ios' ?80:45,
-  }
+  },
+  backLink:{
+  marginBottom:5,
+  color:'white',
+  fontSize:18,
+  },
+  goBack:{
+    padding:7,
+    alignItems:'center',
+    backgroundColor:'#999999',
+    marginBottom:10,
+    alignItems:'flex-start',
+  },
+  chevron:{
+    fontSize:16
+  },
 });
